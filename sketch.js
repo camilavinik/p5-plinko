@@ -33,23 +33,23 @@ function draw() {
   drawGround();
 }
 ///////////////////////////////////////////////////////////
-function keyPressed(){
+function keyPressed() {
   generateNewBall();
 }
 ///////////////////////////////////////////////////////////
-function setupGround(){
-  ground = Bodies.rectangle(width/2, height-20, width, 10, { isStatic: true });
+function setupGround() {
+  ground = Bodies.rectangle(width / 2, height - 20, width, 10, { isStatic: true });
   World.add(engine.world, [ground]);
 }
 ///////////////////////////////////////////////////////////
-function drawGround(){
+function drawGround() {
   fill(255, 255, 255, 150);
   drawVertices(ground.vertices);
 }
 ///////////////////////////////////////////////////////////
-function setupPins(){
+function setupPins() {
   //plinko wall
-  var options = {isStatic: true, restitution: 1};
+  var options = { isStatic: true, restitution: 1 };
   var cols = 15;
   var rows = 9;
   var spacing = width / cols;
@@ -68,21 +68,21 @@ function setupPins(){
   }
 }
 ///////////////////////////////////////////////////////////
-function drawPins(){
-  fill(255,200,0);
-  for (var i=0; i<plinkos.length; i++){
+function drawPins() {
+  fill(255, 200, 0);
+  for (var i = 0; i < plinkos.length; i++) {
     drawVertices(plinkos[i].vertices);
   }
 }
 ///////////////////////////////////////////////////////////
-function generateNewBall(){
-  let ball = Bodies.circle(random(20, width - 20), 0, 15, {restitution: 1});
+function generateNewBall() {
+  let ball = Bodies.circle(random(20, width - 20), 0, 15, { restitution: 1 });
   World.add(engine.world, [ball]);
   balls.push(ball);
 }
 ///////////////////////////////////////////////////////////
-function drawBalls(){
-  for (let i = 0; i < balls.length; i++){
+function drawBalls() {
+  for (let i = 0; i < balls.length; i++) {
     fill(255, 0, 0);
     drawVertices(balls[i].vertices);
   }
